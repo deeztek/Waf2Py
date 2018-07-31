@@ -1,0 +1,17 @@
+{{extend 'layout_community.html'}}
+
+<div class="row">
+    <div class="col-md-10" align="center">
+      <div class="box box-solid">
+        <br>
+        <h1 class="">
+            <b>{{=response.title or request.application}}</b>
+            <small>{{=response.subtitle or 'Web Aplication Firewall'}}</small>
+            </h1>
+          <div class="box-body text-center">
+            <img src="/Waf2Py/static/images/logo.png">
+        </div>
+          <br><br><br><br>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,280 @@
+{{extend 'layout_community.html'}}
+
+<script src="/Waf2Py/static/bower_components/chart.js/chart.bundle.js"></script>
+<div class="row">
+
+<div class="col-md-9">
+   <div class="box box-info">
+        <div class="box-header">
+           <h4 class="box-title text-muted font-light">Most consumed application</h4>
+        </div>
+        <div class="box-body" style="width: 80%; height: 100%;" >
+
+             <canvas id="summaryChart"></canvas>
+
+        </div>
+      </div>
+   </div>
+</div>
+
+<div class="row">
+    <div class="col-md-9">
+        <div class="box box-warning">
+            <div class="box-header">
+                    <h4 class="box-title text-muted font-light">Attacks per Application</h4>
+                </div>
+            <div class="box-body table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th style="vertical-align: middle; text-align: center;">#</th>
+                    <th style="vertical-align: middle; text-align: center;">Application</th>
+                    <th style="vertical-align: middle; text-align: center;"><font color="#f03154">Critical</font></th>
+                    <th style="vertical-align: middle; text-align: center;"><font color="#f7b543">Warning</font></th>
+                    <!--th style="vertical-align: middle; text-align: center;"><font color="#5cb45b">Alert</font></th>-->
+                    <th style="vertical-align: middle; text-align: center;"><font color="#5cb45b">Notice</font></th>
+                    <th style="vertical-align: middle; text-align: center;"><font color="#777">Errors</font></th>
+                    <th style="vertical-align: middle; text-align: center;"><font color="#777">Requests</font></th>
+                </tr>
+                </thead>
+                <tbody>
+                {{count_summary = 0}}
+                {{for row in summary_logs:}}
+                {{count_summary += 1}}
+                <tr>
+                    <td style="vertical-align: middle; text-align: center;">{{=count_summary}}</td>
+                    <td style="vertical-align: middle; text-align: center;">{{=row['app_name']}}</td>
+                    <td style="vertical-align: middle; text-align: center;"><span class="badge bg-red">{{=row['critical']}}</span></td>
+                    <td style="vertical-align: middle; text-align: center;"><span class="badge bg-yellow">{{=row['warning']}}</span></td>
+                    <!--<td style="vertical-align: middle; text-align: center;"><span class="badge bg-green">{{=row['alert']}}</span></td>-->
+                    <td style="vertical-align: middle; text-align: center;"><span class="badge bg-green">{{=row['notice']}}</span></td>
+                    <td style="vertical-align: middle; text-align: center;"><span class="badge bg-black">{{=row['error']}}</span></td>
+                    <td style="vertical-align: middle; text-align: center;"><span class="badge bg-grey">{{=row['requests']}}</span></td>
+                </tr>
+                {{pass}}
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-md-5">
+        <div class="box box-info">
+            <div class="box-header">
+                    <h4 class="box-title text-muted font-light">Disk Usage</h4>
+                </div>
+            <div class="box-body" >
+
+                <canvas id="disk_chart"></canvas>
+                <br>
+                <div align="center">
+                    <span class="label label-info"><small>Total: {{=disk['total']}}</small></span>
+                    <span class="label label-primary"><small>Used: {{=disk['used']}}</small></span>
+                    <span class="label label-default"><small>Free: {{=disk['free']}}</small></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-4">
+        <div class="box box-success">
+            <div class="box-header">
+                    <h4 class="box-title text-muted font-light">Ram Usage</h4>
+                </div>
+            <div class="box-body" >
+
+                <canvas id="ram_chart"></canvas>
+                <br>
+                <div align="center">
+                    <span class="label label-info"><small>Total: {{=ram['ram_total']}}</small></span>
+                    <span class="label label-primary"><small>Used: {{=ram['ram_used']}}</small></span>
+                    <span class="label label-default"><small>Free: {{=ram['ram_free']}}</small></span>
+                </div>
+                <div align="center">
+                    <h5 class="text-muted">Swap:</h5>
+                    <span class="label label-info"><small>Total: {{=ram['swap_total']}}</small></span>
+                    <span class="label label-primary"><small>Used: {{=ram['swap_used']}}</small></span>
+                    <span class="label label-default"><small>Free: {{=ram['swap_free']}}</small></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+<script>
+
+    var ram = document.getElementById("ram_chart").getContext('2d');
+    var attack_chart = new Chart(ram, {
+        type: 'doughnut',
+        data: {
+            labels: ["Used", "Free"],
+
+            datasets: [{
+                data: [{{=ram['ram_used']}}, {{=ram['ram_free']}}],
+                backgroundColor: [
+                    'rgb(54, 162, 235)',
+                    'rgb(227, 230, 229)',
+
+                ],
+                borderColor: [
+                    'rgba(0, 179, 255, 1)',
+                    'rgba(205, 208, 207, 1)',
+                ],
+                borderWidth: 1,
+                options: {
+                    responsive: true,
+
+
+                    animation: {
+                        animateScale: true,
+                        animateRotate: true
+                    }
+                }
+            }]
+        },
+         options: {
+            legend: { display: false },
+            responsive: true,
+            animation: {
+                animateScale: true,
+                animateRotate: true
+            }}
+
+    });
+</script>
+
+<script>
+
+    var disk = document.getElementById("disk_chart").getContext('2d');
+    var disk_chart = new Chart(disk, {
+        type: 'doughnut',
+        data: {
+            labels: ["Used", "Free"],
+
+            datasets: [{
+                data: [{{=disk['used'][:-1]}}, {{=disk['free'][:-1]}}],
+                backgroundColor: [
+                    'rgb(54, 162, 235)',
+                    'rgb(227, 230, 229)',
+
+                ],
+                borderColor: [
+                    'rgba(0, 179, 255, 1)',
+                    'rgba(205, 208, 207, 1)',
+                ],
+                borderWidth: 1,
+                options: {
+                    responsive: true,
+
+
+                    animation: {
+                        animateScale: true,
+                        animateRotate: true
+                    }
+                }
+            }]
+        },
+         options: {
+            legend: { display: false },
+            responsive: true,
+            animation: {
+                animateScale: true,
+                animateRotate: true
+            }}
+
+    });
+</script>
+
+
+
+    <script>
+    var ctx = document.getElementById("summaryChart").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: [
+                {{for name in apps_usage.keys():}}
+                "{{=name.replace("www.","").replace(".com", "").replace(".cl","")}}",
+                {{pass}}
+            ],
+            datasets: [{
+                label: 'Requests',
+                data: [
+                    {{for name in apps_usage.keys():}}
+                    {{=apps_usage[name]}},
+                    {{pass}}
+                ],
+                backgroundColor: [
+                    'rgb(54, 162, 235, 1)',
+                    'rgba(70, 200, 220, 1)',
+                    'rgba(64, 187, 236, 1)',
+                    'rgba(78, 170, 210, 1)',
+                    'rgba(50, 200, 200, 1)',
+                    'rgba(49, 199, 147, 1)',
+                    'rgba(21, 182, 126, 1)',
+                    'rgba(39, 200, 186, 1)',
+                    'rgba(90, 200, 39, 1)',
+                    'rgba(39, 200, 114, 1)',
+
+                ],
+
+                borderColor: [
+                    'rgb(54, 162, 235, 1)',
+                    'rgba(70, 200, 220, 1)',
+                    'rgba(64, 187, 236, 1)',
+                    'rgba(78, 170, 210, 1)',
+                    'rgba(50, 200, 200, 1)',
+                    'rgba(49, 199, 147, 1)',
+                    'rgba(21, 182, 126, 1)',
+                    'rgba(39, 200, 186, 1)',
+                    'rgba(90, 200, 39, 1)',
+                    'rgba(39, 200, 114, 1)',
+
+                ],
+
+                borderWidth: 1,
+                options: {
+                responsive: true,
+
+                legend: {
+                    display: false,
+                },
+
+                animation: {
+                    animateScale: true,
+                }
+            }
+
+            }]
+        },
+        options: {
+                responsive: true,
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            autoSkip: false,
+                            maxRotation: 40,
+                            minRotation: 40
+                        },
+                    }],
+                },
+                legend: {
+                    position: 'right',
+                },
+
+                animation: {
+                    animateScale: true,
+                }
+            }
+
+    });
+</script>

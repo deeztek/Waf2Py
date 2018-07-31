@@ -1,0 +1,18 @@
+<div class="panel-body">
+    <form class="form-inline" role="form" id="inputList">
+
+        <div class="form-group" >
+            <input type="text" class="form-control col-md-9" name="denyPath" placeholder="X-Frame-Origin">
+        </div>
+
+
+        <div class="form-group">
+            <a id="addPath" class="btn btn-success waves-effect waves-light m-l-10">extra path</a>
+        </div>
+        <div class="form-group">
+            <a id="savePaths" class="btn btn-primary waves-effect waves-light m-l-10">Save</a>
+        </div>
+
+    </form>
+
+</div>

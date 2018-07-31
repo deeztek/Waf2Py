@@ -1,0 +1,252 @@
+timestamp: 2018-07-30T18:22:54.653194
+CREATE TABLE "examples"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "conf_name" CHAR(30),
+    "data_conf" TEXT,
+    "description" TEXT,
+    "autor" CHAR(15)
+);
+success!
+timestamp: 2018-07-30T18:22:54.678548
+CREATE TABLE "basic_conf"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "nginx_data_conf" TEXT,
+    "modsec_data_conf" TEXT,
+    "description" TEXT,
+    "autor" CHAR(15)
+);
+success!
+timestamp: 2018-07-30T18:22:54.686473
+CREATE TABLE "new_app"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "app_name" CHAR(100),
+    "nginx_conf_data" TEXT,
+    "modsec_conf_data" TEXT,
+    "autor" CHAR(15),
+    "description" CHAR(50),
+    "checked" INTEGER,
+    "deployed" INTEGER,
+    "id_rand" CHAR(50),
+    "Name" CHAR(50),
+    "vhost_id" INTEGER,
+    "plbsid_id" INTEGER,
+    "fail_timeout" INTEGER,
+    "max_fails" INTEGER,
+    "backend_ip" CHAR(512),
+    "listen_ip" CHAR(45)
+);
+success!
+timestamp: 2018-07-30T18:22:54.718125
+CREATE TABLE "production"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "app_name" CHAR(100),
+    "nginx_conf_data" TEXT,
+    "modsec_conf_data" TEXT,
+    "autor" CHAR(30),
+    "description" CHAR(50),
+    "id_rand" CHAR(50),
+    "enabled" CHAR(50),
+    "listening" CHAR(50),
+    "Name" CHAR(50),
+    "vhost_id" INTEGER,
+    "plbsid_id" INTEGER,
+    "xss_filter" CHAR(3),
+    "sqli_filter" CHAR(3),
+    "proto_anomalies_filter" CHAR(3),
+    "proto_violations_filter" CHAR(3),
+    "generic_filter" CHAR(3),
+    "fail_timeout" INTEGER,
+    "max_fails" INTEGER,
+    "listen_ip" CHAR(45),
+    "mode" CHAR(10),
+    "ports_http" CHAR(5),
+    "ports_https" CHAR(5),
+    "extra_headers" CHAR(512),
+    "paths_denied" CHAR(512),
+    "backend_ip_http" CHAR(512),
+    "backend_ip_https" CHAR(512)
+);
+success!
+timestamp: 2018-07-30T18:22:54.734577
+CREATE TABLE "logs"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "app_name" CHAR(512),
+    "nginx_error" CHAR(512),
+    "nginx_access" CHAR(512),
+    "modsec_audit" CHAR(512),
+    "application_logs" CHAR(512),
+    "type_attack" CHAR(512),
+    "uri" CHAR(512),
+    "level" CHAR(512),
+    "ip_attacker" CHAR(512),
+    "ip_dst" CHAR(512),
+    "date" CHAR(512)
+);
+success!
+timestamp: 2018-07-30T18:22:54.744784
+CREATE TABLE "system"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "iface_ip" CHAR(512),
+    "iface_name" CHAR(10),
+    "used_by" CHAR(100),
+    "available" CHAR(20),
+    "number" INTEGER
+);
+success!
+timestamp: 2018-07-30T18:22:54.759003
+CREATE TABLE "certificate"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "id_rand" CHAR(50),
+    "cert" CHAR(512),
+    "chain" CHAR(512),
+    "privkey" CHAR(512),
+    "protocol" TEXT,
+    "prefer_cipher" CHAR(512),
+    "ciphers" CHAR(512)
+);
+success!
+timestamp: 2018-07-30T18:22:54.784290
+CREATE TABLE "log_app"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "username" CHAR(512),
+    "time" CHAR(512),
+    "msg" TEXT
+);
+success!
+timestamp: 2018-07-30T18:22:54.804617
+CREATE TABLE "log_error"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "username" CHAR(512),
+    "time" CHAR(512),
+    "msg" TEXT
+);
+success!
+timestamp: 2018-07-30T18:22:54.814046
+CREATE TABLE "exclusions"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "id_rand" CHAR(50),
+    "rules_id" CHAR(10),
+    "attack_name" CHAR(30),
+    "type" INTEGER,
+    "local_path" CHAR(512),
+    "user" CHAR(512),
+    "custom_id" INTEGER
+);
+success!
+timestamp: 2018-07-30T18:22:54.873262
+CREATE TABLE "routes"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "id_rand" CHAR(50),
+    "ip" CHAR(512),
+    "gw_ip" CHAR(512),
+    "iface" CHAR(512)
+);
+success!
+timestamp: 2018-07-30T18:22:54.882245
+CREATE TABLE "logs_file"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "id_rand" CHAR(50),
+    "log_name" CHAR(100),
+    "type" CHAR(6),
+    "size" CHAR(10),
+    "date" CHAR(10),
+    "id_rand2" CHAR(50)
+);
+success!
+timestamp: 2018-07-30T18:22:54.891353
+CREATE TABLE "n_interfaces"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "number" INTEGER
+);
+success!
+timestamp: 2018-07-30T18:22:54.898162
+CREATE TABLE "defend_log_summary"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "app_name" CHAR(512),
+    "id_rand" CHAR(50),
+    "critical" INTEGER,
+    "warning" INTEGER,
+    "alert" INTEGER,
+    "notice" INTEGER,
+    "error" INTEGER,
+    "requests" INTEGER
+);
+success!
+timestamp: 2018-07-30T18:22:54.931828
+CREATE TABLE "auth_user"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "first_name" CHAR(128),
+    "last_name" CHAR(128),
+    "email" CHAR(512),
+    "password" CHAR(512),
+    "registration_key" CHAR(512),
+    "reset_password_key" CHAR(512),
+    "registration_id" CHAR(512),
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2018-07-30T18:22:54.943615
+CREATE TABLE "auth_group"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "role" CHAR(512),
+    "description" TEXT,
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2018-07-30T18:22:54.953649
+CREATE TABLE "auth_membership"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  ,
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2018-07-30T18:22:54.964253
+CREATE TABLE "auth_permission"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  ,
+    "name" CHAR(512),
+    "table_name" CHAR(512),
+    "record_id" INTEGER,
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2018-07-30T18:22:54.974107
+CREATE TABLE "auth_event"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "time_stamp" TIMESTAMP,
+    "client_ip" CHAR(512),
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "origin" CHAR(512),
+    "description" TEXT
+);
+success!
+timestamp: 2018-07-30T18:22:54.990191
+CREATE TABLE "auth_cas"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "created_on" TIMESTAMP,
+    "service" CHAR(512),
+    "ticket" CHAR(512),
+    "renew" CHAR(1)
+);
+success!
+timestamp: 2018-07-31T17:49:35.547721
+ALTER TABLE "auth_user" ADD "username" CHAR(128);
+success!

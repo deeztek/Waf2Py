@@ -1,0 +1,19 @@
+{{extend 'layout_community.html'}}
+
+<div class="row">
+    <div class="col-md-10" align="center">
+      <div class="box box-solid">
+        <br>
+        <h1 class="">
+            <b>{{=response.title or request.application}}</b>
+            <br>
+            <small>{{=response.subtitle or 'Web Aplication Firewall'}}</small>
+            </h1>
+          <p>Waf2Py is a nice and easy to use web interface for modsecurity and nginx implementation.</p>
+          <div class="box-body text-center">
+            <img src="/Waf2Py/static/images/logo.png">
+        </div>
+          <br><br><br><br>
+      </div>
+    </div>
+</div>

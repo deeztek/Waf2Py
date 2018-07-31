@@ -1,0 +1,71 @@
+<script src="/Waf2Py/static/bower_components/chart.js/chart.bundle.js"></script>
+
+<div class="row">
+
+<div class="col-md-6">
+   <div class="box box-primary">
+            <div class="box-header">
+               <h4 class="box-title text-muted">Attacks Summary</h4>
+            </div>
+            <div class="panel-body" width="300" height="600" >
+
+
+         <canvas id="summaryChart"></canvas>
+                <br>
+                <div align="center">
+                    <span class="label label-danger"><small>Critical: {{=summary['CRITICAL']}}</small></span>
+                    <span class="label label-warning"><small>Waning: {{=summary['WARNING']}}</small></span>
+                    <!--<span class="label label-primary"><small>Alert: {{=summary['ALERT']}}</small></span>-->
+                    <span class="label label-success"><small>Notice: {{=summary['NOTICE']}}</small></span>
+                    <span class="label label-default"><small>Error: {{=summary['ERROR']}}</small></span>
+                </div>
+         </div>
+      </div>
+   </div>
+</div>
+<script>
+var ctx = document.getElementById("summaryChart").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ["Critical", "Warning", "Notice", "Error"],
+        datasets: [{
+            label: 'Attacks',
+            data: [{{=summary['CRITICAL']}}, {{=summary['WARNING']}}, {{=summary['NOTICE']}}, {{=summary['ERROR']}}],
+            backgroundColor: [
+                'rgba(255, 50, 50, 1)',
+                'rgba(255, 222, 61, 1)',
+                'rgba(6, 202, 9, 1)',
+                'rgba(121, 128, 133, 1)',
+            ],
+
+            borderColor: [
+                'rgba(255, 50, 50, 1)',
+                'rgba(255, 222, 61, 1)',
+                'rgba(6, 202, 9, 1)',
+                'rgba(121, 128, 133, 1)',
+            ],
+
+            borderWidth: 1,
+
+        }]
+    },
+    options: {
+				responsive: true,
+				legend: {
+					position: 'top',
+                        
+                    labels: {
+                    backgroundColor: 'rgba(121, 128, 133, 1)'
+            }
+				},
+                        
+                
+
+				animation: {
+					animateScale: true,
+				}
+			}
+
+});
+</script>
