@@ -43,7 +43,7 @@ Nginx version: openresty/1.9.7.4
 ModSecurity for nginx (STABLE)/2.9.0 (http://www.modsecurity.org/); 
 Rules: OWASP_CRS/2.2.9.
 
-We have previusly compiled openresty and modsecurity in debian 8 and 9, and they are compreses here in this repo.
+We have previously compiled openresty and modsecurity in debian 8 & 9, they are compressed here in this repo.
 There is no modification to the binaries
 ```
 
