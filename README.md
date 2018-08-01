@@ -69,7 +69,7 @@ We have previously compiled openresty and modsecurity in debian 8 & 9, they are 
 There is no modification to the binaries
 ```
 
-<b>Note 1</b>: By now not all options of nginx and modsecurity are implemented whit nice switches, advanced configurations can be maded throught the "expert configuration" tab.
+<b>Note 1</b>: By now not all options of nginx and modsecurity are implemented with nice switches, advanced configurations can be maded throught the "expert configuration" tab.
 
 <b>Note 2</b>: This implementation works with modsecurity 2.9.0, we decided to release first this version for the “old” modsecurity. We are gonna release soon the interface for modsecurity 3 :). Just wait for it!
 
