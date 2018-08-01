@@ -78,6 +78,9 @@ There is no modification to the binaries
 ### If you want to compile nginx and mod security please see the wiki, you will have to maintain certain directories
 * <a href="https://github.com/ITSec-Chile/Waf2Py/wiki">Wiki</a>
 
+## Support
+We invite you to test and support this development to make something powerful and free.
+
 ## License
 
 The following files are pending of license
