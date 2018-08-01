@@ -199,6 +199,7 @@ routers = dict(
     )
 )
 "> /home/www-data/waf2py_community/routes.py
+mkdir /home/www-data/waf2py_community/logrotation.d
 chown -R www-data:www-data /home/www-data/waf2py_community/*
 /etc/init.d/apache2 restart
 
