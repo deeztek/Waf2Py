@@ -200,7 +200,7 @@ routers = dict(
 )
 "> /home/www-data/waf2py_community/routes.py
 chown -R www-data:www-data /home/www-data/waf2py_community/*
-
+/etc/init.d/apache2 restart
 
 echo "[+]Done!"
 echo "[++]Now go to https://yourip:62443/Waf2Py and login"
