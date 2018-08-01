@@ -1,5 +1,5 @@
 
-# Waf2Py
+# Waf2Py [Beta]
 Waf2Py is a nice and easy to use web interface for modsecurity and nginx implementation. Waf2Py is free and run under Web2Py that controls modsecurity and nginx configuration in a easy way, allowing to configure any application in just minutes.
 
 ## What can I do with this interface?
@@ -12,6 +12,8 @@ Waf2Py is a nice and easy to use web interface for modsecurity and nginx impleme
 - Download logs
 - Check the stats for every application with nice graphics
 - Disable/Enable protection with just 1 click.
+- Restrict paths or files.
+- Insert headers.
 
 
 
@@ -21,9 +23,29 @@ Waf2Py is a nice and easy to use web interface for modsecurity and nginx impleme
 git clone https://github.com/ITSec-Chile/Waf2Py.git
 cd Waf2py
 su root
-Chmod +x Install.sh
+chmod +x Install.sh
 ./Install.sh
 
+```
+
+## Creating a website
+```
+1 - Create a virtual IP
+      --> Interfaces menu
+
+2 - Create a new app
+      --> Click "check" button
+      --> Click "Deploy" button
+
+3 - Configure the new app
+      --> Websites running menu
+      --> Click over the application
+      --> Configure the backend
+      --> Configure ports
+      --> Configure certificates if 443 port is enabled
+      --> Choose a virtual ip (previusly created on Interfaces menu)
+      --> Press the "play" button to enable the new app
+      --> Done.
 ```
 
 ## Built With
