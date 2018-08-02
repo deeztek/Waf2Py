@@ -146,22 +146,22 @@ Waf2Py/views/default/user.html
 ### Stage I
 
 ```
-Move to ModSecurity 3
+* Move to ModSecurity 3
 ```
 
 ### Stage II 
 
 ```
-Server Cloacking (Header Rewrite)
-GeoIP Blocking
-IP Reputation 
-Cookie and URL Encryption
-More cool features
+* Server Cloacking (Header Rewrite)
+* GeoIP Blocking
+* IP Reputation 
+* Cookie and URL Encryption
+* More cool features
 ```
 
 ### Stage II
-```
-Complete the pluging System for add new features
 
+```
+* Plugins system to add new features
 ```
 
