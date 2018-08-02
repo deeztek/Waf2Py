@@ -141,5 +141,27 @@ Waf2Py/views/default/new_app.html
 Waf2Py/views/default/user.html
 
 ```
+## RoadMap
 
+### Stage I
+
+```
+Move to ModSecurity 3
+```
+
+### Stage II 
+
+```
+Server Cloacking (Header Rewrite)
+GeoIP Blocking
+IP Reputation 
+Cookie and URL Encryption
+More cool features
+```
+
+### Stage II
+```
+Complete the pluging System for add new features
+
+```
 
