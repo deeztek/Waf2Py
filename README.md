@@ -1,19 +1,19 @@
 
 # Waf2Py [Beta]
-Waf2Py is a nice and easy to use web interface for modsecurity and nginx implementation. Waf2Py is free and run under Web2Py that controls modsecurity and nginx configuration in a easy way, allowing to configure any application in just minutes.
+Waf2Py is a nice and easy to use web interface for modsecurity running on nginx. Waf2Py is free and powered by Web2Py that controls modsecurity and nginx configuration in an easy way, allowing you to configure protection for any webapplication in just minutes.
 
 ## What can I do with this interface?
 
-- Create a site in just minutes,
-- Create global or local exclusions with just 2 clicks!
+- Create a site in just minutes
+- Create global or local exclusions with just 2 clicks
 - Add virtual interfaces
-- Create static routes for the desired app.
-- Check debug, access, error and audit logs in a easy way,
+- Create static routes for the desired app
+- Check debug, access, error and audit logs in an easy way
 - Download logs
 - Check the stats for every application with nice graphics
-- Disable/Enable protection with just 1 click.
-- Restrict paths or files.
-- Insert headers.
+- Disable/Enable protection with just 1 click
+- Restrict paths or files
+- Insert headers
 
 
 
@@ -65,17 +65,17 @@ Nginx version: openresty/1.9.7.4
 ModSecurity for nginx (STABLE)/2.9.0 (http://www.modsecurity.org/); 
 Rules: OWASP_CRS/2.2.9.
 
-We have previously compiled openresty and modsecurity in debian 8 & 9, they are compressed here in this repo.
-There is no modification to the binaries
+We have pre-compiled openresty and modsecurity in debian 8 & 9, they are compressed here in this repo.
+There is no modification to the binaries.
 ```
 
-<b>Note 1</b>: By now not all options of nginx and modsecurity are implemented with nice switches, advanced configurations can be maded throught the "expert configuration" tab.
+<b>Note 1</b>: By now not all options of nginx and modsecurity are implemented with nice switches. Advanced configurations can be made throught the "expert configuration" tab.
 
-<b>Note 2</b>: This implementation works with modsecurity 2.9.0, we decided to release first this version for the “old” modsecurity. We are gonna release soon the interface for modsecurity 3 :). Just wait for it!
+<b>Note 2</b>: This implementation works with modsecurity 2.9.0. We decided to first release a version for the “old” modsecurity. We will soon release the interface for modsecurity 3 :). Just wait for it!
 
-<b>Note 3</b>: Everytime that you perform an action in the web interface will be saved, logged and nginx will check his configuration syntax first, if configuration is not ok, nginx will not be reloaded, so if you do something wrong with the configuration files, it doesn’t matter, only if syntax is ok nginx will be reload his configuration applying the news changes.
+<b>Note 3</b>: Every action you perform in the web interface will be saved and logged. nginx will check its configuration syntax first, if the configuration is not correct, nginx will not be reloaded. If you do something wrong in the configuration files, it doesn’t matter. Nginx will reload and apply the new changes only if the syntax of the configuration files is correct.
 
-### If you want to compile nginx and mod security please see the wiki, you will have to maintain certain directories
+### If you want to compile nginx and modsecurity yourself, please see the wiki. You will have to maintain certain directories
 * <a href="https://github.com/ITSec-Chile/Waf2Py/wiki">Wiki</a>
 
 ## Support
