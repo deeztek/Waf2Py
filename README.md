@@ -75,8 +75,8 @@ There is no modification to the binaries.
 
 <b>Note 3</b>: Every action you perform in the web interface will be saved and logged. nginx will check its configuration syntax first, if the configuration is not correct, nginx will not be reloaded. If you do something wrong in the configuration files, it doesn’t matter. Nginx will reload and apply the new changes only if the syntax of the configuration files is correct.
 
-### If you want to compile nginx and modsecurity yourself, please see the wiki. You will have to maintain certain directories
-* <a href="https://github.com/ITSec-Chile/Waf2Py/wiki">Wiki</a>
+### If you want to compile nginx and modsecurity yourself, please see the Wiki. 
+* <a href="https://github.com/ITSec-Chile/Waf2Py/wiki">Compilation Steps</a>
 
 ## Support
 We invite you to test and support this development to make something powerful and free.
