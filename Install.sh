@@ -26,7 +26,7 @@ fi
 
 # install dependencies
 echo -e "[ + ] Installing dependencies"
-$CMD_APTGET udpate
+$CMD_APTGET update
 if [[ $DEBIAN_VERSION -eq "9" ]]; then
   $CMD_APTGET -y install net-tools
 fi
