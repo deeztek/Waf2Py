@@ -1,3 +1,0 @@
-{{extend 'layout_waf2.html'}}
-<h1>This is the default/ErrorLogs.html template</h1>
-{{=BEAUTIFY(response._vars)}}

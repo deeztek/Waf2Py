@@ -14,7 +14,7 @@ for x in $(cat names);
     cd "/opt/waf/nginx/var/log/"$x"/audit_logs/"
     #delete log files which are not an attack
     logs_count=$(grep -RL "\[id \"" * | wc -l)
-    echo "$logs_count logs removed because their are ligitimal request" >> /home/www-data/waf2py_community/applications/Waf2Py/scripts/cleaning.log
+    echo "$logs_count logs removed because they are legit requests" >> /home/www-data/waf2py_community/applications/Waf2Py/scripts/cleaning.log
     grep -RL "\[id \"" * | while read i; do rm -r $i; done
     done
 echo "Logs cleaned" >> /home/www-data/waf2py_community/applications/Waf2Py/scripts/cleaning.log
