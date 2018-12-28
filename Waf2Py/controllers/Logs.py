@@ -265,7 +265,6 @@ def WafLogs_frame():
                 #get date and the attacker ip
                 first_block = re.search(r'^--\w+-A--\n(.*)\n--\w+-B--\n', logs_data, flags=re.S | re.M).group(0)
                 date = re.search('\d+\/\w+\/\d+:\d\d:\d\d:\d\d', first_block).group(0)
-                attacker_ip = re.search('\[\d{0,2}\/\w{0,3}\/\d{0,4}:\d\d:\d\d:\d\d.--\d*\] .+ \d+.\d+.\d+.\d+', first_block).group(0)
                 attacker_ip = re.search('\d+\.\d+\.\d+\.\d+', first_block).group(0)
                 
                 #get headers
