@@ -64,6 +64,8 @@ admi:admin
 ```
 Tested in Debian 9.
 Components for this build:
+Waf2Py App
+Web2Py 2.17.2
 Nginx version: openresty-1.13.6.2
 ModSecurity v3 - libsecurity;
 Modsecurity Nginx connector
