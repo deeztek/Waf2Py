@@ -131,7 +131,7 @@ rm -r /home/www-data/waf2py_community/applications/welcome
 #Set up the admin password for Web2Py administration
 echo -e "\e[32mSet up the admin password for Web2Py administration\e[39m"
 chown -R www-data:www-data /home/www-data/waf2py_community
-echo "\e[33m\e[1m[!]Change the admin password for the admin interface of web2py\e[39m"
+echo "\e[33m[!]Change the admin password for the admin interface of web2py\e[39m"
 cd /home/www-data/waf2py_community
 sudo -u www-data python -c "from gluon.widget import console; console();"
 sudo -u www-data python -c "from gluon.main import save_password; save_password(raw_input('Choose an admin password for web2py admin: '),62443)"
@@ -257,9 +257,9 @@ fastcgi_param GEOIP_CITY_CONTINENT_CODE $geoip_city_continent_code;
 fastcgi_param GEOIP_LATITUDE $geoip_latitude;
 fastcgi_param GEOIP_LONGITUDE $geoip_longitude;' > /opt/waf/nginx/etc/geoip/fastcgi.conf
 cd $current_dir 
-cp Waf2Py/stuffs/nginx.conf /opt/waf/nginx/etc/
-cp Waf2Py/stuffs/404.html /opt/waf/nginx/etc/static/html/403.html
-cp Waf2Py/stuffs/404.html /opt/waf/nginx/etc/static/html/404.html
+cp stuffs/nginx.conf /opt/waf/nginx/etc/
+cp stuffs/404.html /opt/waf/nginx/etc/static/html/403.html
+cp stuffs/404.html /opt/waf/nginx/etc/static/html/404.html
 
 # adjust permissions
 chown www-data /opt/waf/nginx/var/log/
