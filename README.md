@@ -26,11 +26,11 @@ su root
 chmod +x waf2py_installer.sh
 ./waf2py_installer.sh
 ```
-once is installed go to
+once is installed go to:
 ```
 https://serverip:62443
-Login with:
-admi:admin
+Login:
+admin:admin (don't forget to change this password!)
 ```
 ## Creating a website
 ```
@@ -82,7 +82,7 @@ OWASP ModSecurity Core Rule Set (CRS)
 <b>Note 3</b>: Due to nginx connector is still being improved, maybe not all functions works as expected, but with the time this will be better and better.
 
 ## Support
-We invite you to test and support this development to make something powerful and free.
+We invite you to test and support this development to make something powerfull and free.
 
 ## License
 
