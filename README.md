@@ -67,6 +67,7 @@ Components for this build:
 Nginx version: openresty-1.13.6.2
 ModSecurity v3 - libsecurity;
 Modsecurity Nginx connector
+OWASP ModSecurity Core Rule Set (CRS)
 
 
 
@@ -75,6 +76,8 @@ Modsecurity Nginx connector
 <b>Note 1</b>: By now not all options of nginx and modsecurity are implemented with nice switches. Advanced configurations can be made throught the "expert configuration" tab.
 
 <b>Note 2</b>: Every action you perform in the web interface will be saved and logged. nginx will check its configuration syntax first, if the configuration is not correct, nginx will not be reloaded. If you do something wrong in the configuration files, it doesn’t matter. Nginx will reload and apply the new changes only if the syntax of the configuration files is correct.
+
+<b>Note 3</b>: Due to nginx connector is still being improved, maybe not all functions works as expected, but with the time this will be better and better.
 
 ## Support
 We invite you to test and support this development to make something powerful and free.
