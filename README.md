@@ -55,7 +55,7 @@ Running and Listening = Nginx is running an there is at least 1 web app running
       --> Click over the application
       --> Configure the backend
       --> Configure ports
-      --> Configure certificates if ssl ports are set
+      --> Configure certificates if ssl ports are set (leave it blank if you dont need https ports, same thing apply to http ports)
       --> Choose a virtual ip (previusly created on Interfaces menu)
       --> Press the "play" button to enable the new app
       --> Done.
