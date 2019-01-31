@@ -1,5 +1,5 @@
 #!/bin/bash
-
+current_dir=$(pwd)
 #Install some deps
 apt-get update
 apt-get -y install apt-utils openssl autoconf wget net-tools python-geoip automake libtool m4 build-essential git sudo apache2 libcurl4-openssl-dev libpcre3 libpcre3-dev unzip geoip-bin libgeoip-dev liblmdb-dev tar libpcre++-dev libapache2-mod-wsgi libtool m4 libxml2-dev libyajl-dev pkgconf wget zlib1g-dev
@@ -107,7 +107,7 @@ openssl req -new -x509 -nodes -sha1 -days 365 -key /etc/apache2/ssl/self_signed.
 openssl x509 -noout -fingerprint -text < /etc/apache2/ssl/self_signed.cert > /etc/apache2/ssl/self_signed.info
 
 mkdir /home/www-data
-current_dir=$(pwd)
+
 cd /home/www-data
 rm web2py_src.zip*
 wget http://web2py.com/examples/static/web2py_src.zip
