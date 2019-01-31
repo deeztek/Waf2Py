@@ -26,7 +26,12 @@ su root
 chmod +x waf2py_installer.sh
 ./waf2py_installer.sh
 ```
-
+once is installed go to
+```
+https://serverip:62443
+Login with:
+admi:admin
+```
 ## Creating a website
 ```
 1 - Create a virtual IP
