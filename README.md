@@ -31,7 +31,17 @@ once is installed go to:
 https://serverip:62443
 Login:
 admin:admin (don't forget to change this password!)
+next step:
+go to system --> manage engine --> start engine (this will start nginx, then you can add an application)
 ```
+
+## Status box explanation
+```
+Not Running = Nginx not running
+Running but not listening = Nginx running but no web app created
+Running and Listening = Nginx is running an there is at least 1 web app running
+```
+
 ## Creating a website
 ```
 1 - Create a virtual IP
