@@ -165,6 +165,7 @@ Waf2Py/views/default/user.html
 ### Stage II 
 
 ```
+- [ ] Parsing logs and update dashboard with a cron job (by now logs are being parsed and the dashboard is updated when click the magnifying glass icon)
 - [ ] Server Cloacking (Header Rewrite)
 - [ ] Improve user experience
 - [ ] Fail2ban integration
