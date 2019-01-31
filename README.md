@@ -62,7 +62,7 @@ admi:admin
 
 ## About this bundle
 ```
-Tested in Debian 9.
+Tested in Debian 9 (No docker).
 Components for this build:
 Waf2Py App
 Web2Py 2.17.2
