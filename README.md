@@ -20,8 +20,11 @@ Waf2Py is a nice and easy to use web interface for modsecurity v3 with nginx con
 ## Installing steps
 
 ```
-In cosntruction!
-
+git clone --branch waf2py_modsec3 --single-branch https://github.com/ITSec-Chile/Waf2Py.git
+cd Waf2Py
+su root
+chmod +x waf2py_installer.sh
+./waf2py_installer.sh
 ```
 
 ## Creating a website
