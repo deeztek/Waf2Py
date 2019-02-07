@@ -151,6 +151,20 @@ www-data ALL=(ALL) NOPASSWD: /sbin/route
 cd $current_dir
 echo -e "\e[32mRestarting apache\e[39m"
 service apache2 restart
+#Create crontabs
+echo '
+@reboot  /usr/bin/python /home/www-data/waf2py_community/applications/Waf2Py/scripts/check_services.py
+2 0 * * * /usr/bin/python /home/www-data/waf2py_community/applications/Waf2Py/scripts/index_logs_files.py
+0 */2 * * * /bin/bash /home/www-data/waf2py_community/applications/Waf2Py/scripts/remove_tmp.sh
+1 0 * * * /bin/bash /home/www-data/waf2py_community/applications/Waf2Py/scripts/logrotate
+' >> /var/spool/cron/crontabs/root
+
+#Create logrotation folder andscript
+echo '#!/bin/sh
+
+test -x /usr/sbin/logrotate || exit 0
+ls /home/www-data/waf2py_community/applications/Waf2Py/logrotation.d | while read i; do /usr/sbin/logrotate -v /home/www-data/waf2py_community/applications/Waf2Py/logrotation.d/$i;done
+' > /home/www-data/waf2py_community/applications/Waf2Py/scripts/logrotate
 
 clear
 #Download and Compile the ModSecurity 3.0 Source Code
