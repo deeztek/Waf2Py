@@ -26,11 +26,21 @@ su root
 chmod +x waf2py_installer.sh
 ./waf2py_installer.sh
 ```
+if you already compiled the openresty(nginx) and modsecurity and just need to update the waf2py app, follow this steps
+```
+git clone --branch waf2py_modsec3 --single-branch https://github.com/ITSec-Chile/Waf2Py.git
+cd Waf2Py
+unzip Waf2Py.zip
+#Replace old app with new one
+cp -r Waf2Py /home/www-data/waf2py_community/applications/
+
+done!
+```
 once is installed go to:
 ```
 https://serverip:62443
 Login:
-admin:admin (don't forget to change this password!)
+admin:admin (don't forget to change this password!, also you should check the apache conf and look for the /admin and /appadmin path and restrict them to loclahost ao trusted IPs)
 next step:
 go to system --> manage engine --> start engine (this will start nginx, then you can add an application)
 ```
@@ -54,8 +64,8 @@ Running and Listening = Nginx is running an there is at least 1 web app running
       --> Websites running menu
       --> Click over the application
       --> Configure the backend
-      --> Configure ports
-      --> Configure certificates if ssl ports are set (leave it blank if you dont need https ports, same thing apply to http ports)
+      --> Configure ports (leave it blank if you dont need https ports, same thing apply to http ports)
+      --> Configure certificates if ssl ports are set
       --> Choose a virtual ip (previusly created on Interfaces menu)
       --> Press the "play" button to enable the new app
       --> Done.
